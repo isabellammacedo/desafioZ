@@ -1,0 +1,28 @@
+# https://github.com/docker-library/docs/blob/master/postgres/README.md
+# https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d db-1"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+    networks:
+      - networkZ
+
+networks:
+  networkZ:
+
+volumes:
+  pgdata:
