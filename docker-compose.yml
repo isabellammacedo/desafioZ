@@ -1,6 +1,7 @@
 # https://github.com/docker-library/docs/blob/master/postgres/README.md
 # https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
 # https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/django/
+# https://github.com/docker/awesome-compose/tree/master/angular
 
 services:
   db:
@@ -35,8 +36,18 @@ services:
     networks:
       - networkZ
 
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - networkZ
+
 networks:
   networkZ:
+    driver: bridge
 
 volumes:
   pgdata:
