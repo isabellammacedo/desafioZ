@@ -1,1 +1,53 @@
-<p>list works!</p>
+<div class="container mt-4">
+  <h2 class="text-center text-primary mb-4 pb-4">Meus Documentos</h2>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Nome do Documento</th>
+        <th>Status</th>
+        <th>Signatários</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let document of documents; let i = index">
+        <td>{{ document.name }}</td>
+        <td>{{ document.status === 'em-curso' ? 'Em curso' : document.status }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let signer of document.signers">
+              {{ signer.name }} ({{ signer.email }})
+            </li>
+          </ul>
+        </td>
+        <td>
+          <button class="btn text-primary" (click)="onEdit(document)"><span
+              class="material-icons">edit</span></button>
+          <button class="btn text-danger" (click)="onDelete(document.id)"><span
+              class="material-icons">delete</span></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="documentToUpdate" class="mt-5">
+    <h3>Editar Documento</h3>
+    <form (ngSubmit)="onSaveEdit()">
+      <div class="form-group">
+        <label for="documentName"><strong>Nome do Documento:</strong></label>
+        <input type="text" class="form-control" [(ngModel)]="documentToUpdate.name" name="name" required>
+      </div>
+      <div class="form-group mt-3">
+        <label><strong>Signatários:</strong></label>
+        <div *ngFor="let signer of documentToUpdate.signers; let i = index">
+          <input type="text" class="form-control mb-2" [(ngModel)]="signer.name" name="signerName{{i}}"
+            placeholder="Nome do Signatário" required>
+          <input type="email" class="form-control mb-2" [(ngModel)]="signer.email" name="signerEmail{{i}}"
+            placeholder="Email do Signatário" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success mt-3">Salvar</button>
+    </form>
+  </div>
+</div>

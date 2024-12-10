@@ -1,1 +1,38 @@
-<p>create works!</p>
+<div class="container mt-4">
+  <h2 class="text-center text-primary mb-4 pb-4">Criar Documento</h2>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+    
+    <div class="mb-3 form-floating">
+      <input type="text" id="name" class="form-control" formControlName="name" placeholder="Nome do Documento"/>
+      <label for="name">Nome do Documento</label>
+    </div>
+
+    <div class="mb-3 form-floating">
+      <input type="url" id="url_pdf" class="form-control" formControlName="url_pdf" placeholder="URL do arquivo (PDF)"/>
+      <label for="url_pdf">URL do arquivo (PDF)</label>
+    </div>
+
+    <div class="mb-3">
+      <label>Signatários</label>
+      <button type="button" class="btn btn-primary" (click)="addSignatario()">Adicionar</button>
+    </div>
+
+    <div class="mb-3" formArrayName="signers" *ngFor="let signer of signers.controls; let i = index">
+      <div [formGroupName]="i" class="card p-3 mb-2">
+        <div class="form-floating mb-2">
+          <input type="text" class="form-control" formControlName="name" placeholder="Nome" id="signer-name-{{i}}"/>
+          <label for="signer-name-{{i}}">Nome</label>
+        </div>
+        
+        <div class="form-floating mb-2">
+          <input type="email" class="form-control" formControlName="email" placeholder="Email" id="signer-email-{{i}}"/>
+          <label for="signer-email-{{i}}">Email</label>
+        </div>
+        
+        <button type="button" class="btn btn-danger btn-sm" (click)="deleteSignatario(i)">Remover</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="createForm.invalid">Criar Documento</button>
+  </form>
+</div>

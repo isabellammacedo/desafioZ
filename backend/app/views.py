@@ -75,7 +75,7 @@ class DocumentView(APIView):
             openID=document_data.get('openID', 0),
             token=api_token,
             name=document_data['name'],
-            status=api_response_data.get('status', 'PENDING'),
+            status=api_response_data.get('status', 'em-curso'),
             externalID=api_response_data.get('external_id', ''),
             company=company,
         )
@@ -88,7 +88,7 @@ class DocumentView(APIView):
                 email=signer.get('email', ''),
                 externalID=api_response_data.get('external_id', ''),
                 token=api_token,
-                status='PENDING'
+                status='novo'
             )
 
         return Response(
