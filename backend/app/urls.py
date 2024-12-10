@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import CompanyViewSet, DocumentViewSet, SignersViewSet
+from .views import CompanyViewSet, DocumentView, DocumentViewSet, SignersViewSet
 from rest_framework.routers import DefaultRouter
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -13,9 +13,9 @@ router.register(r'Signers', SignersViewSet)
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="ZapSign API",
+        title="ZapSign",
         default_version='v1',
-        description="Documentação da API"
+        description="Documentação"
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -24,5 +24,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)), 
+    path('swagger/', schema_view.with_ui('swagger', cache_timeout=0)),
+    path('api/docs/', DocumentView.as_view()),
+    path('api/docs/<int:pk>/', DocumentView.as_view()),
 ]
