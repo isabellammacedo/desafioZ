@@ -48,16 +48,12 @@ O sistema ficará disponível nas seguintes portas:
 Para integrar a aplicação à API externa, é necessário cadastrar o token, conforme abaixo.
 
 ### Passos para configurar o token:
-Crie uma conta na plataforma ZapSign (https://www.zapsign.com.br/).
-Obtenha o API Token gerado para a sua conta. Este token geralmente pode ser encontrado nas configurações de API da plataforma.
-Acesse o painel Admin do Django:
+Crie uma conta na plataforma ZapSign (https://www.zapsign.com.br/).  
+Obtenha o API Token gerado para a sua conta. Este token geralmente pode ser encontrado nas configurações de API da plataforma.  
+Entre em http://localhost:8000/admin com as credenciais:  
+Usuário: `admin`  
+Senha: `admin`  
 
-Entre em http://localhost:8000/admin com as credenciais:
-Usuário: `admin`
-Senha: `admin`
-
-No painel admin, acesse Company.
-Adicione o Nome da empresa e o API Token obtido na ZapSign.
-Após configurar o token, o sistema estará pronto para fazer requisições à API externa da ZapSign.
-
-
+No painel admin, acesse Company.  
+Adicione o Nome da empresa e o API Token obtido na ZapSign.  
+Após configurar o token, o sistema estará pronto para fazer requisições à API externa da ZapSign.  
