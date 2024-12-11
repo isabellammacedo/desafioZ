@@ -57,3 +57,14 @@ Senha: `admin`
 No painel admin, acesse Company.  
 Adicione o Nome da empresa e o API Token obtido na ZapSign.  
 Após configurar o token, o sistema estará pronto para fazer requisições à API externa da ZapSign.  
+
+## Testes dentro do Docker
+
+Foram criados os testes do backend utilizando o pytest.  
+Para executar os testes dentro do Docker é necessário seguir estes passos:
+
+1. Com o comando `docker ps`, copiar o id do container do backend (pode ser os 3 primeiros caracteres somente);  
+2. Executar o comando e adicionar o id do container:  
+`docker exec -it <CONTAINER_ID> /bin/bash`  
+3. No terminal desse container, executar o comando de testes (incluindo a flag do coverage):  
+`pytest --cov=app`  
