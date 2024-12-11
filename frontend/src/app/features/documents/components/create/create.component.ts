@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DocumentsService } from '../../services/documents.service';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -19,7 +20,8 @@ export class CreateComponent {
 
   constructor(
     private fb: FormBuilder,
-    private documentService: DocumentsService
+    private documentService: DocumentsService,
+    private router: Router
   ) {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
@@ -48,13 +50,12 @@ export class CreateComponent {
     if (this.createForm.valid) {
       this.documentService.createDocument(this.createForm.value).subscribe({
         next: (response) => {
-          // TODO: adicionar uma mensagem melhor
-          alert('Documento criado com sucesso!');
+          alert('Documento criado com sucesso! Você será redirecionado para a página inicial.');
+          this.router.navigate(['/']);
         },
         error: (err) => {
           console.error('Erro:', err);
-          // TODO: adicionar uma mensagem melhor
-          alert('Erro ao criar documento!');
+          alert('Erro ao criar documento! Verifique as informações preenchidas e tente novamente.');
         },
       });
     }
