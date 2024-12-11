@@ -20,6 +20,10 @@ Este desafio consiste em desenvolver um CRUD (Create, Read, Update, Delete) que 
 - **Docker** (para criar ambientes isolados)
 - **Docker Compose** (para gerenciar os containers)
 
+### Outros
+- **Swagger**: Para documentação interativa dos endpoints da API.
+- **Commits Semânticos**: Seguindo o padrão de mensagens de commit para garantir maior legibilidade e organização no histórico de alterações do projeto.
+
 ## Pré-requisitos:
 
 É necessário ter instalado na máquina:
