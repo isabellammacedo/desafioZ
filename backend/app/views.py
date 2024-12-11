@@ -51,7 +51,7 @@ class DocumentView(APIView):
         if not company or not company.api_token:
             return Response(
                 {"error": "API token não encontrado"}, 
-                status=status.HTTP_400_BAD_REQUEST
+                status=status.HTTP_403_FORBIDDEN
             )
 
         api_token = company.api_token

@@ -9,6 +9,9 @@ class Company(models.Model):
     class Meta:
         db_table = 'Company' 
 
+    def __str__(self):
+        return self.name
+
 class Document(models.Model):
     openID = models.IntegerField()
     token = models.CharField(max_length=255)
@@ -22,6 +25,9 @@ class Document(models.Model):
     class Meta:
         db_table = 'Document' 
 
+    def __str__(self):
+        return self.name 
+
 class Signers(models.Model):
     token = models.CharField(max_length=255)
     status = models.CharField(max_length=50)
@@ -32,3 +38,6 @@ class Signers(models.Model):
 
     class Meta:
         db_table = 'Signers' 
+
+    def __str__(self):
+        return self.name
