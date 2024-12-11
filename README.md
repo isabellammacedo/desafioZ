@@ -40,7 +40,6 @@ Durante o processo de build, o Django irá realizar as migrations e criar um usu
 O sistema ficará disponível nas seguintes portas:
 
 - Frontend (Angular): http://localhost:4200
-- Backend (Django API): http://localhost:8000
 - Admin do Django: http://localhost:8000/admin
 - Endpoints da API: http://localhost:8000/api/
 - Documentação da API (Swagger): http://localhost:8000/swagger/
