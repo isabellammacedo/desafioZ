@@ -7,6 +7,7 @@ Este desafio consiste em desenvolver um CRUD (Create, Read, Update, Delete) que 
 ### Frontend:
 - **Angular** (para desenvolvimento da interface)
 - **Typescript** (linguagem utilizada no desenvolvimento frontend)
+- **Bootstrap** (para a estilização dos componentes) 
 
 ### Backend:
 - **Django** (framework Python)
@@ -15,9 +16,9 @@ Este desafio consiste em desenvolver um CRUD (Create, Read, Update, Delete) que 
 ### Banco de Dados:
 - **PostgreSQL** (utilizado como banco de dados relacional)
 
-### Contêineres:
+### Containers:
 - **Docker** (para criar ambientes isolados)
-- **Docker Compose** (para gerenciar os contêineres)
+- **Docker Compose** (para gerenciar os containers)
 
 ## Pré-requisitos:
 
@@ -41,11 +42,11 @@ O sistema ficará disponível nas seguintes portas:
 - Frontend (Angular): http://localhost:4200
 - Backend (Django API): http://localhost:8000
 - Admin do Django: http://localhost:8000/admin
-- Documentação da API (Swagger): http://localhost:8000/swagger/
 - Endpoints da API: http://localhost:8000/api/
+- Documentação da API (Swagger): http://localhost:8000/swagger/
 
 
-Para integrar a aplicação à API externa, é necessário cadastrar o token, conforme abaixo.
+:warning: Para integrar a aplicação à API externa, é necessário cadastrar o token, conforme abaixo.
 
 ### Passos para configurar o token:
 Crie uma conta na plataforma ZapSign (https://www.zapsign.com.br/).  

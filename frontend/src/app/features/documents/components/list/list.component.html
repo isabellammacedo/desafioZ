@@ -13,7 +13,7 @@
     <tbody>
       <tr *ngFor="let document of documents; let i = index">
         <td>{{ document.name }}</td>
-        <td>{{ document.status === 'em-curso' ? 'Em curso' : document.status }}</td>
+        <td>{{ document.status === 'pending' ? 'Em curso' : document.status }}</td>
         <td>
           <ul>
             <li *ngFor="let signer of document.signers">
